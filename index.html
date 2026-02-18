@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charity Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4e73df, #1cc88a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 350px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4e73df;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2e59d9;
+        }
+        .success {
+            margin-top: 15px;
+            color: green;
+            text-align: center;
+        }
+    </style>
+</head>
+<body><div class="container">
+    <h2>Charity Registration Form</h2>
+    <form id="charityForm">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" required><label for="age">Age</label>
+    <input type="number" id="age" required min="1">
+
+    <label for="city">City</label>
+    <input type="text" id="city" required>
+
+    <label for="gender">Gender</label>
+    <select id="gender" required>
+        <option value="">Select</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+    </select>
+
+    <label for="amount">Donation Amount (₹)</label>
+    <input type="number" id="amount" required min="1">
+
+    <button type="submit">Register & Pay</button>
+</form>
+
+<div class="success" id="successMessage"></div>
+
+</div><script>
+    document.getElementById('charityForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const age = document.getElementById('age').value;
+        const city = document.getElementById('city').value;
+        const gender = document.getElementById('gender').value;
+        const amount = document.getElementById('amount').value;
+
+        // Simulated Payment Process
+        alert("Redirecting to payment gateway for ₹" + amount);
+
+        // After payment success (simulated)
+        document.getElementById('successMessage').innerText =
+            "Thank you " + name + "! Your registration and donation of ₹" + amount + " was successful.";
+
+        document.getElementById('charityForm').reset();
+    });
+</script></body>
+</html>
